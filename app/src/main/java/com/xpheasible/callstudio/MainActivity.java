@@ -79,7 +79,8 @@ public class MainActivity extends Activity {
         add(body,action("📸  Take a picture",false,v -> capturePhoto()),-2,8);
         add(body,action("▶  Select a video",false,v -> pick("video/*",PICK_VIDEO)),-2,8);
         add(body,action("◎  Live camera preview",false,v -> setCamera()),-2,8);
-        add(body,action("🌐  Web / AI page (experimental)",false,v -> setWeb()),-2,16);
+        add(body,action("🌐  Web / AI page (experimental)",false,v -> setWeb()),-2,8);
+        add(body,action("🖥  DELULU DESKTOP VIEW  ·  FLOAT",true,v -> startActivity(new Intent(this,DesktopBrowserActivity.class))),dp(59),16);
         add(body,action("▶  OPEN FULLSCREEN STAGE",true,v -> openStage()),dp(59),16);
         add(body,label("USE WITH YOUR VIDEO CALL",12,Color.rgb(148,163,184),true),-2,9);
         add(body,action("Open WhatsApp",false,v -> openApp("com.whatsapp")),-2,8);
@@ -89,7 +90,7 @@ public class MainActivity extends Activity {
         guide.setPadding(dp(16),dp(18),dp(16),dp(18));
         guide.setBackground(bg(Color.rgb(19, 28, 48), 14));
         add(body,guide,-2,6);
-        add(body,label("Tip: Keep personal notifications hidden while sharing your screen.",12,Color.rgb(151,164,183),false),-2,8);
+        add(body,label("Delulu desktop view is experimental. Float minimizes the page using Android Picture-in-Picture, but it cannot turn Android into a desktop or virtual camera. For reliable sign-in, use Open in Chrome and enable Desktop site there.\n\nTip: Hide personal notifications when screen sharing.",12,Color.rgb(151,164,183),false),-2,8);
         setContentView(scroll);
     }
     private void refreshSource() {
