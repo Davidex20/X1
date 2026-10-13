@@ -19,7 +19,11 @@ jobs:
         with:
           gradle-version: '8.9'
       - name: Install Android API
-        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+        run: |
+          SDK_ROOT="${ANDROID_HOME:-/usr/local/lib/android/sdk}"
+          SDKMANAGER="$(find "$SDK_ROOT/cmdline-tools" -type f -name sdkmanager -print -quit)"
+          test -n "$SDKMANAGER"
+          "$SDKMANAGER" 'platforms;android-35' 'build-tools;35.0.0'
       - name: Build installable debug APK
         run: gradle --no-daemon --stacktrace :app:assembleDebug
       - name: Upload APK
